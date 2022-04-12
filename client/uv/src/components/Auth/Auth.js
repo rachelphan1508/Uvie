@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signin,signup } from '../../actions/auth.js';
 
-const initialState = {username: '', email: '', password:'', confirmPassword:''}
+const initialState = {name: '', email: '', password:'', confirmPassword:''}
 
 const Auth = () => {
   const classes=useStyles();
@@ -62,21 +62,21 @@ const Auth = () => {
           <Grid container spacing={2}>
             {
               isSignUp && (
-                  <Input name="username" label="Username" handleChange={handleChange} />              
+                  <Input name="name" label="Username" handleChange={handleChange} type="text" />              
               )}
               <Input name="email" label="Email Address" handleChange={handleChange} type="email"/>
               <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword} />
               { isSignUp && <Input name="confirmPassword" label="Confirm Password" handleChange={handleChange} type="password"/>}
           </Grid>
           
-          <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+          <Button type="submit" fullWidth variant="contained" style={{backgroundColor: '#66ccf8' }} className={classes.submit}>
             {isSignUp ? 'Sign Up' : 'Log In'}
           </Button>
 
           <GoogleLogin
             clientId="845634240768-kvo54le0rosqct90tkgdcsl41ul6o0t0.apps.googleusercontent.com"
             render={(renderProps) => (
-              <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon/>} variant="contained">
+              <Button className={classes.googleButton} style={{backgroundColor: '#ffffff' }} fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon/>} variant="contained">
                 Google Sign In
               </Button>
             )}
