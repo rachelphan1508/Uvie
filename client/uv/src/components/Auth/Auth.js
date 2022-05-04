@@ -12,14 +12,20 @@ import { signin,signup } from '../../actions/auth.js';
 const initialState = {name: '', email: '', password:'', confirmPassword:''}
 
 const Auth = () => {
+  let errors={}
   const classes=useStyles();
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState(initialState);
+  //const [errors, setErrors] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+    //setErrors(validate(formData));
     if (isSignUp) {
+      if (formData.password !== formData.confirmPassword) {
+        errors.password = 'Passwords do not match';
+      }
       dispatch(signup(formData, navigate));
     } else {
       dispatch(signin(formData, navigate));
@@ -53,20 +59,20 @@ const Auth = () => {
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
-        <Avatar className={classes.avatar}>
-          Avatar
 
-        </Avatar>
         <Typography variant="h5">{isSignUp ? 'Sign Up' : 'Sign In'}</Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             {
               isSignUp && (
-                  <Input name="name" label="Username" handleChange={handleChange} type="text" />              
+                    <Input name="name" label="Username" handleChange={handleChange} type="text" />         
               )}
               <Input name="email" label="Email Address" handleChange={handleChange} type="email"/>
               <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword} />
-              { isSignUp && <Input name="confirmPassword" label="Confirm Password" handleChange={handleChange} type="password"/>}
+              { isSignUp && 
+                <Input name="confirmPassword" label="Confirm Password" handleChange={handleChange} type="password"/>
+                
+              }
           </Grid>
           
           <Button type="submit" fullWidth variant="contained" style={{backgroundColor: '#66ccf8' }} className={classes.submit}>
@@ -98,7 +104,3 @@ const Auth = () => {
 }
 
 export default Auth
-
-/*
-<LockOutlinedIcon/>
-*/
