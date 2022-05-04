@@ -21,7 +21,8 @@ export default makeStyles({
     justifyContent: 'space-between',
     height: '100%',
     position: 'relative',
-    
+    backgroundColor: '#EDEDED',
+    padding: '0px 20px 0px 20px',
   },
   overlay: {
     position: 'absolute',
@@ -47,5 +48,16 @@ export default makeStyles({
   },
   cardActions: {
     padding: '0 16px 8px 16px',
+  },
+  Typography: {
+    h5: {
+      fontWeight: 600,
+    }
+  },
+  upvote: {
+    padding: '100 16px 8px 16px',
+  },
+  button: {
+    color: '#fff',
   },
 });
