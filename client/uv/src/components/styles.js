@@ -3,7 +3,7 @@ import { deepPurple } from '@material-ui/core/colors/index.js';
 
 export default makeStyles((theme) => ({
   palette: {
-    primaryColor: "03A9F4",
+    primary: "03A9F4",
   },
   appBar: {
     margin: '0px 0',
@@ -13,15 +13,20 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     padding: '10px 50px',
     fontSize: "20px",
+    height: '60px',
+    fontFamily: 'Open Sans',
   },
   heading: {
     color: 'rgba(0,183,255, 1)',
+    fontFamily: 'Open Sans',
+    fontWeight: '600',
     textDecoration: 'none',
   },
   image: {
     marginLeft: '15px',
   },
   toolbar: {
+    fontFamily: 'Open Sans',
     display: 'flex',
     justifyContent: 'flex-end',
     width: '400px',
@@ -42,5 +47,12 @@ export default makeStyles((theme) => ({
   purple: {
     color: theme.palette.getContrastText("#03A9F4"),
     backgroundColor: "#03A9F4",
+  },
+  typography: {
+    fontFamily: 'Roboto',
+    fontSize: '30px',
+  },
+  ul: {
+    justifyContent: 'space-around',
   },
 }));
