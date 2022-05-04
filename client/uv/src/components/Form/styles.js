@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    margin: '20px 20px',
+    margin: '10px 10px',
     backgroundColor: '#f7f7f7',
 
   },
@@ -17,10 +17,6 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-  },
-  fileInput: {
-    width: '97%',
-    margin: '10px 0',
   },
   buttonSubmit: {
     marginBottom: 10,
