@@ -1,19 +1,25 @@
-import { CREATE, FETCH_ALL, UPDATE, DELETE, UPVOTE, DOWNVOTE } from '../constants/actionTypes.js';
+import { CREATE, FETCH_ALL, COMMENT, FETCH_POST, UPDATE, DELETE, UPVOTE, DOWNVOTE } from '../constants/actionTypes.js';
 
 
-export default (posts = [], action) => {
+export default (state = [], action) => {
     switch (action.type) {
+        case FETCH_POST:
+            return [... state, action.payload.post];
         case FETCH_ALL:
             return action.payload;
         case CREATE: 
-            return [... posts, action.payload];
+            return [... state, action.payload];
         case UPDATE:
         case UPVOTE:
         case DOWNVOTE:
-            return posts.map((post)=> post._id === action.payload._id ? action.payload : post);
+            return state.map((post)=> post._id === action.payload._id ? action.payload : post);
+        case COMMENT:
+            return state.map((post) => 
+                action.payload._id === post._id? action.payload : post
+            )
         case DELETE:
-            return posts.filter((post) => post._id !== action.payload);
+            return state.filter((post) => post._id !== action.payload);
         default:
-            return posts;
+            return state;
     }
 }
