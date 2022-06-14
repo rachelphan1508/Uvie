@@ -1,5 +1,9 @@
 import express from 'express';
-import {getPosts, createPost, deletePost, updatePost, upvotePost, downvotePost} from '../controllers/posts.js'
+import {getPosts, getPost, createPost, deletePost, updatePost, upvotePost, downvotePost, commentPost} from '../controllers/posts.js'
+
+import auth from '../middleware/auth.js';
+
+
 const router = express.Router();
 
 
@@ -7,12 +11,13 @@ const router = express.Router();
 
 
 router.get('/', getPosts);
-router.post('/', createPost);
-router.patch('/:id', updatePost);
-router.delete('/:id', deletePost);
-router.patch('/:id/upvotePost', upvotePost);
-router.patch('/:id/downvotePost', downvotePost);
-
+router.get('/:id', getPost);
+router.post('/', auth, createPost);
+router.patch('/:id', auth, updatePost);
+router.delete('/:id', auth, deletePost);
+router.patch('/:id/upvotePost', auth, upvotePost);
+router.patch('/:id/downvotePost', auth, downvotePost);
+router.post('/:id/commentPost', auth, commentPost);
 
 export default router;
 
