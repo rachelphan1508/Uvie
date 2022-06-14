@@ -5,14 +5,27 @@ const postSchema = mongoose.Schema({
     title: String,
     message: String,
     creator: String,
+    name: String,
     tags: [String],
+    upvoteList: {
+        type: [String],
+        default: [],
+    },
+    downvoteList: {
+        type: [String],
+        default: [],
+    },
     upvote: {
         type: Number,
-        default: 0
+        default:0,
+    },
+    comments: {
+        type: [String],
+        default: [],
     },
     createdAt: {
         type: Date,
-        default: new Date()
+        default: new Date(),
     },
 
 });
