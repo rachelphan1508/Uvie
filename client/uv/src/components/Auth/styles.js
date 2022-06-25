@@ -1,13 +1,13 @@
-import { makeStyles } from '@material-ui/core/styles';
-import { deepPurple } from '@material-ui/core/colors';
+import { makeStyles } from '@material-ui/core/styles/index.js';
 
 export default makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    padding: theme.spacing(2),
+    alignItems: 'left',
+    padding: theme.spacing(4),
+    marginTop: theme.spacing(8),
+    background: '#EDEDEE',
   },
   root: {
     '& .MuiTextField-root': {
@@ -19,13 +19,32 @@ export default makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    width: '100%',
+    marginTop: theme.spacing(2),
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
+  button: {
+    margin: theme.spacing(0.3),
+    marginTop: theme.spacing(2.5),
+    marginBottom: theme.spacing(3),
+    width: '48%',
   },
-  googleButton: {
-    marginBottom: theme.spacing(2),
+  container: {
+    width: '100%',
+    background: '#EDEDEE',
+
   },
+  intro: {
+    fontWeight: '800',
+    paddingBottom: theme.spacing(5),
+    paddingTop: theme.spacing(8),
+    fontFamily: 'Open Sans',
+  },
+  switchButton: {
+    fontWeight: '900',
+    
+  },
+  switchText: {
+    textAlign: 'right',
+    fontSize: 20,
+  }
 }));
